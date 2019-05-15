@@ -1,0 +1,13 @@
+gcd:
+addi $sp, $sp, -12
+sw $a1, 8($sp)
+sw $a0, 4($sp)
+sw $ra, 0($sp)
+move $v0, $a0					
+beqz $a1, gcd_return
+move $t4, $a0
+move $a0, $a1
+remu $a1, $t4, $a1
+jal gcd
+lw $a1, 8($sp)
+lw $a0, 4($sp)
